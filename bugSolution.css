@@ -1,0 +1,26 @@
+/* bugSolution.css */
+
+/* Solution for unexpected percentage calculation results: ensure that the containing element's width is defined before using percentage in calc(), possibly using a wrapper element with explicit width, or defer the application of the style via Javascript */
+.container {
+  width: 500px; /* Explicit width for reliable calculation */
+}
+
+.element {
+  width: calc(50% - 10px);
+}
+
+/* Solution for incorrect comment placement: place comments outside of the calc() expression */
+.element2 {
+  /* This comment is valid */
+  width: calc(100px + 20px); /* This is a valid calc() expression */
+}
+
+/* Alternative solution using variables (CSS Custom Properties) for better readability and maintainability */
+:root {
+  --element-width: calc(50% - 10px);
+}
+
+.element3 {
+  width: var(--element-width);
+}
+
